@@ -1,7 +1,10 @@
-﻿namespace DrinkAndGo.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DrinkAndGo.Data.Models
 {
     public class Drink
     {
+        [Key]
         public int DrinkId { get; set; }
         public string Name { get; set; }
         public string ShortDescription { get; set; }

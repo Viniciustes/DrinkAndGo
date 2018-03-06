@@ -11,9 +11,10 @@ using System;
 namespace DrinkAndGo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180306134011_CartItem")]
+    partial class CartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,7 +74,7 @@ namespace DrinkAndGo.Migrations
 
                     b.Property<int?>("DrinkId");
 
-                    b.Property<string>("ShoppingCartId");
+                    b.Property<int>("ShoppingCartId");
 
                     b.HasKey("ShoppingCartItemId");
 
