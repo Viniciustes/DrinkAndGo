@@ -5,7 +5,7 @@ namespace DrinkAndGo.Data.Models
 {
     public class OrderDetail
     {
-        public OrderDetail( Guid orderId, int drinkId, int amount, decimal price)
+        public OrderDetail(Guid orderId, int drinkId, int amount, decimal price)
         {
             OrderDetailId = Guid.NewGuid();
             OrderId = orderId;
