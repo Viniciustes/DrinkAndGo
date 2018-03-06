@@ -24,6 +24,7 @@ namespace DrinkAndGo
         {
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_configurationRoot.GetConnectionString("DefaultConnection")));
 
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IDrinkRepository, DrinkRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
 

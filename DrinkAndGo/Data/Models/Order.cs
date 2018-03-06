@@ -6,7 +6,7 @@ namespace DrinkAndGo.Data.Models
 {
     public class Order
     {
-        public Order(string firstName, string lastName, string addressLine1, string addressLine2, string zipCode, string state, string coutry, string phoneNumber, string email, decimal ordeTotal)
+        public Order(string firstName, string lastName, string addressLine1, string addressLine2, string zipCode, string state, string country, string phoneNumber, string email, decimal ordeTotal, string city)
         {
             OrderId = Guid.NewGuid();
             FirstName = firstName;
@@ -15,7 +15,8 @@ namespace DrinkAndGo.Data.Models
             AddressLine2 = addressLine2;
             ZipCode = zipCode;
             State = state;
-            Coutry = coutry;
+            City = city;
+            Country = country;
             PhoneNumber = phoneNumber;
             Email = email;
             OrdeTotal = ordeTotal;
@@ -31,7 +32,8 @@ namespace DrinkAndGo.Data.Models
         public string AddressLine2 { get; private set; }
         public string ZipCode { get; private set; }
         public string State { get; private set; }
-        public string Coutry { get; private set; }
+        public string City { get; private set; }
+        public string Country { get; private set; }
         public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
         public decimal OrdeTotal { get; private set; }
