@@ -2,6 +2,7 @@
 using DrinkAndGo.Data.Models;
 using DrinkAndGo.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,12 +32,7 @@ namespace DrinkAndGo.Controllers
             }
             else
             {
-                if (string.Equals("Alcoholic", _category, System.StringComparison.OrdinalIgnoreCase))
-                {
-                    drinks = _drinkRepository.Drinks.Where(d => d.Category.CategoryName.Equals("Alcoholic")).OrderBy(d => d.DrinkId);
-                }
-                else
-                    drinks = _drinkRepository.Drinks.Where(d => d.Category.CategoryName.Equals("Non-alcoholic")).OrderBy(d => d.DrinkId);
+                drinks = _drinkRepository.Drinks.Where(d => d.Category.CategoryName.Equals(_category, StringComparison.CurrentCultureIgnoreCase)).OrderBy(d => d.DrinkId);
 
                 currentCategory = _category;
             }
