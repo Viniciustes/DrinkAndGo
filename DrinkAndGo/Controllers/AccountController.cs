@@ -19,12 +19,10 @@ namespace DrinkAndGo.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult Login(string returnUrl)
-        {
-            return View(new LoginViewModel() { ReturnUrl = returnUrl });
-        }
+        public IActionResult Login(string returnUrl) => View(new LoginViewModel() { ReturnUrl = returnUrl });
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if (!ModelState.IsValid)
@@ -50,12 +48,10 @@ namespace DrinkAndGo.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
+        public ActionResult Register() => View();
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(LoginViewModel loginViewModel)
         {
@@ -66,11 +62,14 @@ namespace DrinkAndGo.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("LoggedIn", "Account");
                 }
             }
             return View(loginViewModel);
         }
+
+        [AllowAnonymous]
+        public ViewResult LoggedIn() => View();
 
         [HttpPost]
         [Authorize]
