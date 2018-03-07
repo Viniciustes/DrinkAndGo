@@ -1,10 +1,12 @@
 ﻿using DrinkAndGo.Data.Interfaces;
 using DrinkAndGo.Data.Models;
 using DrinkAndGo.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DrinkAndGo.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private readonly ShoppingCart _shoppingCart;
